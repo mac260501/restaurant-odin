@@ -1,4 +1,5 @@
 import Logo from "./logo.png";
+import "./style.css";
 
 const contentDiv = document.getElementById("content");
 
@@ -27,6 +28,8 @@ function buildHomePage() {
   header.appendChild(heading1);
   header.appendChild(tabsContainer);
 
+  header.classList.add("header");
+
   // ------------ Main ----------
   const mainDiv = document.createElement("div");
 
@@ -36,7 +39,7 @@ function buildHomePage() {
   p1.textContent = "Best pizza in the world";
 
   const p2 = document.createElement("p");
-  p1.textContent = "Made with passion since 1958";
+  p2.textContent = "Made with passion since 1958";
 
   const imgContainer = document.createElement("div");
 
@@ -44,11 +47,16 @@ function buildHomePage() {
   myLogo.src = Logo;
   imgContainer.appendChild(myLogo);
 
+  imgContainer.classList.add("img-container");
+
   infoCard.appendChild(p1);
   infoCard.appendChild(p2);
   infoCard.appendChild(imgContainer);
 
   mainDiv.appendChild(infoCard);
+  mainDiv.classList.add("main");
+
+  infoCard.classList.add("card");
 
   // ------------- Footer ----------
   const footer = document.createElement("footer");
@@ -57,6 +65,8 @@ function buildHomePage() {
   footerText.textContent = "Copyright © The Odin Project 2023";
 
   footer.appendChild(footerText);
+
+  footer.classList.add("footer");
 
   // -------------------------------
   console.log(contentDiv);
