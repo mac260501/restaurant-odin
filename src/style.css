@@ -8,9 +8,7 @@
     font-family: sans-serif;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
     min-height: 100vh;
-    /* min-width: 572px; */
 }
 
 /* Header */
@@ -18,8 +16,29 @@
 .header {
     color: #FFFFFF;
     text-align: center;
-    padding: 36px;
+    padding: 36px 36px 24px 36px;
     background-color: #393f4d;
+}
+
+.header h1 {
+    margin-bottom: 24px;
+}
+
+button {
+    font-size: 20px;
+    font-weight: bold;
+
+    color: #FFFFFF;
+    background-color: inherit;
+
+    border: none;
+    border-radius: 3px;
+    /* border-bottom: 3px solid #FFFFFF; */
+
+    padding-bottom: 6px;
+    cursor: pointer;
+
+    width: 100px;
 }
 
 /* Footer */
@@ -31,6 +50,8 @@
     padding: 24px;
     background-color: #393f4d;
 }
+
+/* Main Div */ 
 
 .main {
     flex: 1;
@@ -54,10 +75,10 @@
 
 .card p {
     margin-bottom: 24px;
+    font-size: 24px;
 }
 
 .img-container {
-    /* margin-top: auto; */
     display: flex;
     justify-content: center;
 }

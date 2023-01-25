@@ -1,9 +1,10 @@
-import Logo from "./logo.png";
+import { buildHomePage } from "./home";
+// import Logo from "./logo.png";
 import "./style.css";
 
 const contentDiv = document.getElementById("content");
 
-function buildHomePage() {
+function buildPage() {
   // ----------- Header ----------
   const header = document.createElement("header");
 
@@ -14,12 +15,15 @@ function buildHomePage() {
 
   const homeTab = document.createElement("button");
   homeTab.textContent = "Home";
+  homeTab.classList.add("home-tab");
 
   const menuTab = document.createElement("button");
   menuTab.textContent = "Menu";
+  menuTab.classList.add("menu-tab");
 
   const contactTab = document.createElement("button");
   contactTab.textContent = "Contact";
+  contactTab.classList.add("contact-tab");
 
   tabsContainer.appendChild(homeTab);
   tabsContainer.appendChild(menuTab);
@@ -30,33 +34,33 @@ function buildHomePage() {
 
   header.classList.add("header");
 
-  // ------------ Main ----------
+  // // ------------ Main ----------
   const mainDiv = document.createElement("div");
-
-  const infoCard = document.createElement("div");
-
-  const p1 = document.createElement("p");
-  p1.textContent = "Best pizza in the world";
-
-  const p2 = document.createElement("p");
-  p2.textContent = "Made with passion since 1958";
-
-  const imgContainer = document.createElement("div");
-
-  const myLogo = new Image();
-  myLogo.src = Logo;
-  imgContainer.appendChild(myLogo);
-
-  imgContainer.classList.add("img-container");
-
-  infoCard.appendChild(p1);
-  infoCard.appendChild(p2);
-  infoCard.appendChild(imgContainer);
-
-  mainDiv.appendChild(infoCard);
   mainDiv.classList.add("main");
 
-  infoCard.classList.add("card");
+  // const infoCard = document.createElement("div");
+
+  // const p1 = document.createElement("p");
+  // p1.textContent = "Best pizza in the world";
+
+  // const p2 = document.createElement("p");
+  // p2.textContent = "Made with passion since 1958";
+
+  // const imgContainer = document.createElement("div");
+
+  // const myLogo = new Image();
+  // myLogo.src = Logo;
+  // imgContainer.appendChild(myLogo);
+
+  // imgContainer.classList.add("img-container");
+
+  // infoCard.appendChild(p1);
+  // infoCard.appendChild(p2);
+  // infoCard.appendChild(imgContainer);
+
+  // mainDiv.appendChild(infoCard);
+
+  // infoCard.classList.add("card");
 
   // ------------- Footer ----------
   const footer = document.createElement("footer");
@@ -69,10 +73,15 @@ function buildHomePage() {
   footer.classList.add("footer");
 
   // -------------------------------
-  console.log(contentDiv);
+  // return mainDiv;
   contentDiv.appendChild(header);
   contentDiv.appendChild(mainDiv);
   contentDiv.appendChild(footer);
+
+  homeTab.addEventListener("click", () => {
+    buildHomePage(mainDiv);
+    homeTab.style.borderBottom = "3px solid #FFFFFF";
+  });
 }
 
-buildHomePage();
+buildPage();
