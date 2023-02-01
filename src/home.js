@@ -15,7 +15,7 @@ function buildHomePage(mainDiv) {
   myLogo.src = Logo;
   imgContainer.appendChild(myLogo);
 
-  imgContainer.classList.add("img-container");
+  imgContainer.classList.add("home-img-container");
 
   infoCard.appendChild(p1);
   infoCard.appendChild(p2);

@@ -1,8 +1,9 @@
 import { buildHomePage } from "./home";
-// import Logo from "./logo.png";
+import { buildMenuPage } from "./menu";
 import "./style.css";
 
 const contentDiv = document.getElementById("content");
+let currentTab;
 
 function buildPage() {
   // ----------- Header ----------
@@ -38,29 +39,10 @@ function buildPage() {
   const mainDiv = document.createElement("div");
   mainDiv.classList.add("main");
 
-  // const infoCard = document.createElement("div");
-
-  // const p1 = document.createElement("p");
-  // p1.textContent = "Best pizza in the world";
-
-  // const p2 = document.createElement("p");
-  // p2.textContent = "Made with passion since 1958";
-
-  // const imgContainer = document.createElement("div");
-
-  // const myLogo = new Image();
-  // myLogo.src = Logo;
-  // imgContainer.appendChild(myLogo);
-
-  // imgContainer.classList.add("img-container");
-
-  // infoCard.appendChild(p1);
-  // infoCard.appendChild(p2);
-  // infoCard.appendChild(imgContainer);
-
-  // mainDiv.appendChild(infoCard);
-
-  // infoCard.classList.add("card");
+  // Build home page when page first loads
+  buildHomePage(mainDiv);
+  homeTab.style.borderBottom = "3px solid #FFFFFF";
+  currentTab = homeTab;
 
   // ------------- Footer ----------
   const footer = document.createElement("footer");
@@ -79,9 +61,35 @@ function buildPage() {
   contentDiv.appendChild(footer);
 
   homeTab.addEventListener("click", () => {
-    buildHomePage(mainDiv);
-    homeTab.style.borderBottom = "3px solid #FFFFFF";
+    if (currentTab !== homeTab) {
+      removeAllChildNodes(mainDiv);
+      buildHomePage(mainDiv);
+      styleTab(homeTab);
+      currentTab = homeTab;
+    }
   });
+
+  menuTab.addEventListener("click", () => {
+    if (currentTab !== menuTab) {
+      removeAllChildNodes(mainDiv);
+      buildMenuPage(mainDiv);
+      styleTab(menuTab);
+      currentTab = menuTab;
+    }
+  });
+}
+
+// Helper function to clear main div
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
+// Helper function to style tab, while removing style from current tab
+function styleTab(newTab) {
+  currentTab.style.borderBottom = "none";
+  newTab.style.borderBottom = "3px solid #FFFFFF";
 }
 
 buildPage();
