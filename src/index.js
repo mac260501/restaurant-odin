@@ -55,10 +55,12 @@ function buildPage() {
   footer.classList.add("footer");
 
   // -------------------------------
-  // return mainDiv;
+
   contentDiv.appendChild(header);
   contentDiv.appendChild(mainDiv);
   contentDiv.appendChild(footer);
+
+  // ----- Event Listeners for Tabs -------
 
   homeTab.addEventListener("click", () => {
     if (currentTab !== homeTab) {
