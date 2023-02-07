@@ -93,3 +93,9 @@ button {
 .menu-img-container img {
     max-width: 100%;
 }
+
+/* Contact Page */
+
+.contact-img-container img {
+    width: 90%;
+}

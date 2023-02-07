@@ -1,5 +1,6 @@
 import { buildHomePage } from "./home";
 import { buildMenuPage } from "./menu";
+import { buildContactPage } from "./contact";
 import "./style.css";
 
 const contentDiv = document.getElementById("content");
@@ -77,6 +78,15 @@ function buildPage() {
       buildMenuPage(mainDiv);
       styleTab(menuTab);
       currentTab = menuTab;
+    }
+  });
+
+  contactTab.addEventListener("click", () => {
+    if (currentTab !== contactTab) {
+      removeAllChildNodes(mainDiv);
+      buildContactPage(mainDiv);
+      styleTab(contactTab);
+      currentTab = contactTab;
     }
   });
 }
